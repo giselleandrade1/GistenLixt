@@ -1,33 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GistenLixt
 
-## Getting Started
+Modern authentication and client management system built with Next.js 16.
 
-First, run the development server:
+## 🚀 Features
+
+- ✨ Modern UI with dark/light theme
+- 🔐 Complete authentication system (login/signup/logout)
+- 👥 Per-user client management with full isolation
+- 🎨 Smooth animations and transitions
+- 📱 Fully responsive design
+- 🔒 Role-based access control
+- 🗄️ SQLite database with Better-SQLite3
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16.1.6 (Turbopack)
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4
+- **Database**: SQLite (better-sqlite3)
+- **Authentication**: Custom JWT-like tokens
+- **Icons**: Lucide React
+- **Testing**: Jest + React Testing Library
+
+## 📦 Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Initialize database
+npm run init-db
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── api/              # API routes
+│   ├── auth/        # Authentication endpoints
+│   └── clients/     # Client management endpoints
+├── components/      # React components
+│   ├── ui/         # Reusable UI components
+│   └── ...         # Feature components
+├── providers/       # Context providers
+├── dashboard/       # Dashboard page
+├── clientes/        # Client management pages
+└── ...             # Other pages
 
-## Learn More
+lib/
+├── db.ts           # Database setup
+└── auth-token.ts   # Auth utilities
 
-To learn more about Next.js, take a look at the following resources:
+docs/               # Documentation files
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔑 Default Admin Account
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Email**: admin@admin.com
+- **Password**: admin123
+
+## 📚 Documentation
+
+Detailed documentation is available in the `docs/` folder:
+
+- [Components Documentation](docs/COMPONENTS_DOCUMENTATION.md)
+- [Transitions Guide](docs/TRANSITIONS_GUIDE.md)
+- [Implementation Summary](docs/IMPLEMENTATION_SUMMARY.md)
+
+## 🧪 Testing
+
+```bash
+npm test
+```
+
+## 🔒 Security Notes
+
+- Auth tokens are HttpOnly cookies
+- Passwords hashed with bcryptjs
+- Per-user data isolation with foreign keys
+- Middleware protection for private routes
+
+## 📄 License
+
+MIT
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
 
 ## Deploy on Vercel
 

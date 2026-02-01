@@ -44,3 +44,9 @@ next-env.d.ts
 gastenlixt.db
 gastenlixt.db-shm
 gastenlixt.db-wal
+
+# build cache
+.swc/
+
+# documentation (optional, keep locally)
+docs/DELIVERY_SUMMARY.sh
