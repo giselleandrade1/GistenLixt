@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafbff;
+  --foreground: #0f0015;
+  --primary: #a855f7;
+  --primary-light: #d8b4fe;
+  --primary-dark: #6d28d9;
+  --accent: #ec4899;
+  --accent-light: #f472b6;
+  --accent-dark: #be185d;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0a1a;
+    --foreground: #f5f3ff;
+    --primary: #c084fc;
+    --primary-light: #e9d5ff;
+    --primary-dark: #9333ea;
+    --accent: #f472b6;
+    --accent-light: #fbcfe8;
+    --accent-dark: #9d174d;
+  }
+}
+
+/* Transições suaves padrão */
+* {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Elementos sem transição */
+img, picture, video, canvas, svg {
+  @apply transition-none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  @apply transition-colors duration-500;
+}
+
+/* ==================== GRADIENTES ==================== */
+.gradient-primary {
+  @apply bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500;
+}
+
+.gradient-primary-dark {
+  @apply bg-gradient-to-r from-purple-600 via-purple-700 to-pink-600;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500;
+}
+
+/* ==================== ANIMAÇÕES CUSTOMIZADAS ==================== */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Slide Up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Slide Down */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==================== TRANSIÇÕES UTILITÁRIAS ==================== */
+
+/* Transição rápida */
+.transition-fast {
+  @apply transition-all duration-150 ease-out;
+}
+
+/* Transição padrão */
+.transition-base {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Transição lenta */
+.transition-slow {
+  @apply transition-all duration-500 ease-out;
+}
+
+/* Transição suave com easing personalizado */
+.transition-smooth {
+  @apply transition-all duration-400 ease-in-out;
+}
+
+/* ==================== HOVER EFFECTS ==================== */
+
+/* Hover Lift */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Hover Glow */
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50;
+}
+
+/* Hover Scale */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* ==================== GLASS MORPHISM ==================== */
+
+.glass {
+  @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  @apply transition-all duration-300;
+}
+
+.glass-hover {
+  @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  @apply transition-all duration-300;
+  @apply hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/30 dark:hover:border-white/20;
+}
+
+/* ==================== CARD TRANSITIONS ==================== */
+
+.card-enter {
+  animation: slideUp 0.6s ease-out;
+}
+
+.card-hover {
+  @apply transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl;
+}
+
+/* ==================== BUTTON TRANSITIONS ==================== */
+
+.btn-press {
+  @apply transition-transform duration-150 active:scale-95;
+}
+
+.btn-glow {
+  @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-purple-500/50;
+}
+
+/* ==================== ANIMATION DELAYS ==================== */
+
+.delay-50 {
+  animation-delay: 50ms;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-250 {
+  animation-delay: 250ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-350 {
+  animation-delay: 350ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-450 {
+  animation-delay: 450ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
